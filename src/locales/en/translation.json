@@ -1,0 +1,27 @@
+{
+	"welcome": "Welcome to Aurelia 2",
+	"login": {
+		"welcome": "Welcome to Aurelia 2",
+		"intro": "Let's build something great",
+		"email": "Email address or username",
+		"emailPlaceholder": "Your email address or username",
+		"password": "Password",
+		"forgotPassword":"Forgot password?",
+		"keepMeLoggedIn":"Keep me logged in",
+		"signIn":"Sign in",
+		"signingIn":"Signing in",
+		"or":"OR",
+		"dontHaveAccount" :"Don't have an account?",
+		"signUp" : "Sign up",
+		"authenticationError" : "Authentication error",
+		"invalidUsernameOrPassword": "Invalid username or password",
+		"githubProviderNotImplemented": "Github provider not implemented!",
+		"googleProviderNotImplemented": "Google provider not implemented!"
+
+	},
+	"nav": {
+		"welcome": "Welcome",
+		"about": "About",
+		"signOut": "Sign out"
+	}
+}

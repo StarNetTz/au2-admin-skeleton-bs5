@@ -1,0 +1,26 @@
+{
+	"welcome": "Aurelia 2 - Dobrodošli",
+	"login": {
+		"welcome": "Aurelia 2 - Dobrodošli",
+		"intro": "Ajmo raja, malo konstruktivno!",
+		"email": "Email adresa ili korisničko ime",
+		"emailPlaceholder": "Vaša email adresa ili korisničko ime",
+		"password": "Lozinka",
+		"forgotPassword":"Zaboravili ste lozinku?",
+		"keepMeLoggedIn":"Ostanite prijavljeni",
+		"signIn":"Prijavi se",
+		"signingIn":"Prijava u toku",
+		"or":"ILI",
+		"dontHaveAccount" :"Nemate nalog?",
+		"signUp" : "Kreirajte nalog",
+		"authenticationError" : "Autentikacijska greška",
+		"invalidUsernameOrPassword": "Neispravno korisničko ime ili lozinka",
+		"githubProviderNotImplemented": "Github provajder nije implementiran!",
+		"googleProviderNotImplemented": "Google provajder nije implementiran!"
+	},
+	"nav": {
+		"welcome": "Dobrodošli",
+		"about": "O nama",
+		"signOut": "Odjavi se"
+	}
+}

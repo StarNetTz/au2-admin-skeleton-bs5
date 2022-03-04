@@ -1,0 +1,110 @@
+<div aria-live="polite" aria-atomic="true" class="position-relative">
+	<!-- Position it: -->
+	<!-- - `.toast-container` for spacing between toasts -->
+	<!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
+	<!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
+	<div class="toast-container position-absolute top-0 end-0 p-3">
+
+		<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+			<div class="toast-header">
+				<img width="30" height="30" src="/assets/img/error.svg" class="rounded me-2" alt="...">
+				<strong class="me-auto"><span t="login.authenticationError">xAuthentication error</span></strong>
+
+				<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+			<div class="toast-body">
+				${errorMessage}
+			</div>
+		</div>
+	</div>
+</div>
+<div>
+	<div class="mt-5 px-5 py-5 p-lg-0 h-screen bg-surface-secondary d-flex flex-column justify-content-center">
+		<div class="d-flex justify-content-center">
+			<div
+				class="col-12 col-md-9 col-lg-6 min-h-lg-screen d-flex flex-column justify-content-center py-lg-16 px-lg-20 position-relative">
+				<div class="row">
+					<div class="col-lg-10 col-md-9 col-xl-7 mx-auto">
+						<div class="text-center mb-12">
+							<h2 class="ls-tight font-bolder mt-6">
+								<img src="/assets/img/aurelia.svg" alt="" width="50" height="50"
+									class="d-inline-block"><span t="login.welcome">xWelcome to Aurelia 2!</span>
+							</h2>
+							<p class="mt-2" t="login.intro">xLet's build something great</p>
+						</div>
+						<form>
+							<div class="mb-5"><label class="form-label" for="email" t="login.email">Email
+									address</label> <input value.bind="usernameOrEmail" type="email"
+									class="form-control" id="email" t="[placeholder]login.emailPlaceholder"
+									placeholder="xYour email address"></div>
+							<div class="mb-5">
+								<div class="d-flex align-items-center justify-content-between">
+									<div><label class="form-label" for="password" t="login.password">xPassword</label>
+									</div>
+									<div class="mb-2"><a href="./basic-recover.html"
+											class="text-sm text-muted text-primary-hover text-underline"
+											t="login.forgotPassword">xForgot
+											password?</a></div>
+								</div><input type="password" class="form-control" id="password"
+									t="[placeholder]login.password" placeholder="xPassword"
+									autocomplete="current-password" value.bind="password">
+							</div>
+							<div class="mb-5">
+								<div class="form-check"><input class="form-check-input" type="checkbox"
+										name="check_example" id="check-remind-me"> <label class="form-check-label"
+										for="check-remind-me" t="login.keepMeLoggedIn">xKeep me logged in</label></div>
+							</div>
+							<div class="row g-3">
+								<div class="input-group col-12">
+									<button type="button" class="btn btn-primary form-control" click.trigger="login()"
+										disabled.bind="isBusy">
+										<div if.bind="isBusy">
+											<span  class="spinner-border spinner-border-sm"
+												role="status" aria-hidden="true"></span>
+											<span  class="visually-hidden"  t="login.signingIn">xSigning in...</span>
+											<span  t="login.signingIn"></span>
+										</div>
+										<span if.bind="!isBusy" t="login.signIn"></span>
+									</button>
+									<button type="button"
+										class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+										data-bs-toggle="dropdown" aria-expanded="false">
+										<i class="fas fa-globe fa-lg"></i>
+										<span class="visually-hidden">Toggle Dropdown</span>
+									</button>
+									<ul class="dropdown-menu dropdown-menu-end">
+										<li><a class="dropdown-item" href="#" click.trigger="setLocale('en')"><img
+													width="40" height="20" alt="..." src="/assets/img/en.svg"><span>
+													English</span></a></li>
+										<li><a class="dropdown-item" href="#" click.trigger="setLocale('ba')"><img
+													width="40" height="20" alt="..." src="/assets/img/ba.svg"><span>
+													Bosanski</span></a></li>
+									</ul>
+								</div>
+
+							</div>
+						</form>
+						<div class="py-5 text-center"><span class="text-xs text-uppercase font-semibold"
+								t="login.or">xor</span></div>
+						<div class="row g-3">
+							<div class="col-sm-6"><a href="#" class="btn btn-neutral w-100"
+									click.trigger="loginGithub()"><span class="icon icon-sm pe-2"><img alt="..."
+											src="/assets//img/social/github.svg">
+									</span><span>Github</span></a></div>
+							<div class="col-sm-6"><a href="#" class="btn btn-neutral w-100"
+									click.trigger="loginGoogle()"><span class="icon icon-sm pe-2"><img alt="..."
+											src="/assets/img/social/google.svg">
+									</span><span>Google</span></a></div>
+						</div>
+
+
+						<div class="my-6"><small><span t="login.dontHaveAccount">xDon't have an account?</span></small>
+							<a href="/pages/authentication/basic-register.html"
+								class="text-warning text-sm font-semibold" t="login.signUp">xSign up</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
