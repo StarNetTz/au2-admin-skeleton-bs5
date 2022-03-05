@@ -1,6 +1,6 @@
 # AU2-ADMIN-SKELETON-BS5
 
-This is a simple skeleton app which demonstrates:  
+This is a simple Aurelia 2 skeleton app which demonstrates:  
 - Usage of Bootstrap 5 (sass customization)
 - Basic authentication using full page login
 - Basic routing
