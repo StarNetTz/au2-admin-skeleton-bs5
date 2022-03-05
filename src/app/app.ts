@@ -1,6 +1,5 @@
 import { IRouter, IRouteViewModel, route } from 'aurelia';
 import { IEventAggregator } from 'aurelia';
-import { AboutPage } from './about-page/about-page';
 import { MyProfile } from './my-profile/my-profile';
 import { WelcomePage } from './welcome-page/welcome-page';
 
@@ -10,12 +9,6 @@ import { WelcomePage } from './welcome-page/welcome-page';
 			path: ['', 'welcome'],
 			component: WelcomePage,
 			title: 'Welcome',
-			viewport: 'app'
-		},
-		{
-			path: 'about',
-			component: AboutPage,
-			title: 'About',
 			viewport: 'app'
 		},
 		{
@@ -34,7 +27,6 @@ export class App implements IRouteViewModel {
 	}
 
 	load(params, next, current) {
-		console.log('load app')
-		this.EventAggregator.publish("shell:loaded");
+		this.EventAggregator.publish("shell:loaded"); /*Subscribing navbar directly to auth:login did not work bacause of lifecycles. Should improve this*/
 	}
 }

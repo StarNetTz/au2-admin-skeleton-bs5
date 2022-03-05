@@ -4,6 +4,7 @@ import { IRouter, route } from '@aurelia/router';
 import { LoginPage } from '../login-page/login-page';
 import { App } from '../app/app';
 import { IDisposable } from 'aurelia';
+import { MissingPage } from '../app/missing-page/missing-page';
 
 @route({
 	routes: [
@@ -17,6 +18,11 @@ import { IDisposable } from 'aurelia';
 			component: App,
 			title: 'Home'
 
+		},
+		{
+			path: ['missing'],
+			component: MissingPage,
+			title: 'Oops'
 		}
 	]
 })
