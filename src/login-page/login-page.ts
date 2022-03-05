@@ -58,7 +58,6 @@ export class LoginPage {
   }
 
   setLocale(loc: string) {
-    console.log(loc);
     this.I18N.setLocale(loc);
   }
 }

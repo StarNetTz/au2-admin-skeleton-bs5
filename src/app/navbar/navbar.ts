@@ -22,7 +22,6 @@ export class Navbar {
 	}
 
 	setLocale(loc: string) {
-		console.log(loc);
 		this.I18N.setLocale(loc);
 	}
 

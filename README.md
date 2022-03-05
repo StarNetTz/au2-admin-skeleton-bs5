@@ -1,37 +1,26 @@
-# test3
+# AU2-ADMIN-SKELETON-BS5
 
-This project is bootstrapped by [aurelia/new](https://github.com/aurelia/new).
+This is a simple skeleton app which demonstrates:  
+- Usage of Bootstrap 5 (sass customization)
+- Basic authentication using full page login
+- Basic routing
+- I18N
+
+To do:
+- demo of validation plugin
+- role/permission based nav item visibility and accessibility
+- demo of api plugin
+
+It depends on following plugins:  
+- @starnetbih/au2-configuration
+- @starnetbih/au2-auth
+- @starnetbih/au2-api
+
+## test login data
+You can login with following username/password credantials:
+- admin, admin
+- john, doe
 
 ## Start dev web server
-
+    yarn install
     npm start
-
-## Build the app in production mode
-
-    npm run build
-
-It builds all files to dist folder. To deploy to production server, copy all the `dist/*` files to production root folder.
-
-For example
-```
-dist/index.html
-dist/foo.12345.js
-```
-Copy to production root folder
-```
-root_folder/index.html
-root_folder/foo.12345.js
-```
-
-## Unit Tests
-
-    npm run test
-
-Run unit tests in watch mode.
-
-    npm run test:watch
-
-
-## Analyze webpack bundle
-
-    npm run analyze
