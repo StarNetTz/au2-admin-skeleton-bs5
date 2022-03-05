@@ -34,18 +34,18 @@
 						</div>
 						<form>
 							<div class="mb-5"><label class="form-label" for="email" t="login.email">Email
-									address</label> <input value.bind="usernameOrEmail" type="email"
+									address</label> <input tabindex="0" value.bind="usernameOrEmail" type="email"
 									class="form-control" id="email" t="[placeholder]login.emailPlaceholder"
 									placeholder="xYour email address"></div>
 							<div class="mb-5">
 								<div class="d-flex align-items-center justify-content-between">
 									<div><label class="form-label" for="password" t="login.password">xPassword</label>
 									</div>
-									<div class="mb-2"><a href="./basic-recover.html"
+									<div class="mb-2"><a tabindex="-1" href="#"
 											class="text-sm text-muted text-primary-hover text-underline"
 											t="login.forgotPassword">xForgot
 											password?</a></div>
-								</div><input type="password" class="form-control" id="password"
+								</div><input  type="password" class="form-control" id="password"
 									t="[placeholder]login.password" placeholder="xPassword"
 									autocomplete="current-password" value.bind="password">
 							</div>
@@ -56,7 +56,7 @@
 							</div>
 							<div class="row g-3">
 								<div class="input-group col-12">
-									<button type="button" class="btn btn-primary form-control" click.trigger="login()"
+									<button type="submit" class="btn btn-primary form-control" click.trigger="login()"
 										disabled.bind="isBusy">
 										<div if.bind="isBusy">
 											<span  class="spinner-border spinner-border-sm"
@@ -99,7 +99,7 @@
 
 
 						<div class="my-6"><small><span t="login.dontHaveAccount">xDon't have an account?</span></small>
-							<a href="/pages/authentication/basic-register.html"
+							<a href="#"
 								class="text-warning text-sm font-semibold" t="login.signUp">xSign up</a>
 						</div>
 					</div>

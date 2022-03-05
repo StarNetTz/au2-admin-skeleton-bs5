@@ -13,7 +13,7 @@ import { IDisposable } from 'aurelia';
 			title: 'Sign in'
 		},
 		{
-			path: ['welcome'],
+			path: ['app'],
 			component: App,
 			title: 'Home'
 
@@ -33,7 +33,7 @@ export class Shell {
 	) {
 
 		this.loginSubscription = this.EA.subscribe("auth:login", (msg, chnl) => {
-			this.Router.load('welcome');
+			this.Router.load('app');
 		});
 
 		this.logoutSubscription = this.EA.subscribe("auth:logout", () => {

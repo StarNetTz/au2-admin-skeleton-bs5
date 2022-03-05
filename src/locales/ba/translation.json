@@ -1,5 +1,9 @@
 {
-	"welcome": "Aurelia 2 - Dobrodošli",
+	"welcome":{
+		"title" :  "Aurelia 2 - Dobrodošli",
+		"subTitle" :  "Laka za Naučiti, Izvrsne Performanse",
+		"text":"Aurelia je kolekcija Modern JavaScript modula, koji korišteni zajedno fukncionišu kao moćna platforma za izradu browser, desktop i mobile aplikacija, bazirana na otvorenom kodu i open web standardima."
+	},
 	"login": {
 		"welcome": "Aurelia 2 - Dobrodošli",
 		"intro": "Ajmo raja, malo konstruktivno!",
@@ -21,6 +25,15 @@
 	"nav": {
 		"welcome": "Dobrodošli",
 		"about": "O nama",
+		"myProfile": "Moj profil",
 		"signOut": "Odjavi se"
+	},
+	"profile": {
+		"title": "Moj profil",
+		"username": "Korisničko ime",
+		"displayName": "Puno ime",
+		"email": "Email",
+		"roles": "Uloge",
+		"permissions": "Dozvole"
 	}
 }

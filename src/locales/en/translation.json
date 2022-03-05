@@ -1,5 +1,9 @@
 {
-	"welcome": "Welcome to Aurelia 2",
+	"welcome":{
+		"title" :  "Welcome to Aurelia 2",
+		"subTitle" :  "Easy to Learn, High Performance",
+		"text":"Aurelia is a collection of Modern JavaScript modules, which when used together, function as a powerful platform for building browser, desktop and mobile applications, all open source and built on open web standards."
+	},
 	"login": {
 		"welcome": "Welcome to Aurelia 2",
 		"intro": "Let's build something great",
@@ -22,6 +26,16 @@
 	"nav": {
 		"welcome": "Welcome",
 		"about": "About",
+		"myProfile": "My profile",
 		"signOut": "Sign out"
+
+	},
+	"profile": {
+		"title": "My profile",
+		"username": "Username",
+		"displayName": "Display name",
+		"email": "Email",
+		"roles": "Roles",
+		"permissions": "Permissions"
 	}
 }

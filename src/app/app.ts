@@ -1,6 +1,7 @@
 import { IRouter, IRouteViewModel, route } from 'aurelia';
 import { IEventAggregator } from 'aurelia';
 import { AboutPage } from './about-page/about-page';
+import { MyProfile } from './my-profile/my-profile';
 import { WelcomePage } from './welcome-page/welcome-page';
 
 @route({
@@ -15,6 +16,12 @@ import { WelcomePage } from './welcome-page/welcome-page';
 			path: 'about',
 			component: AboutPage,
 			title: 'About',
+			viewport: 'app'
+		},
+		{
+			path: 'profile',
+			component: MyProfile,
+			title: 'My profile',
 			viewport: 'app'
 		}
 	]
