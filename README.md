@@ -18,6 +18,10 @@ It depends on following plugins:
 - @starnetbih/au2-auth
 - @starnetbih/au2-api
 
+
+Source code for these plugins is available at:  
+https://github.com/StarNetTz/au2-plugins
+
 ## Test login data
 You can login with following username/password credantials:
 - admin, admin
