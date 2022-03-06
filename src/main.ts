@@ -7,7 +7,6 @@ import { ApiPlugin } from '@starnetbih/au2-api';
 import { AureliaAuthPlugin } from '@starnetbih/au2-auth';
 import { I18nConfiguration } from '@aurelia/i18n';
 import Fetch from 'i18next-fetch-backend';
-import { IDelayer, Delayer } from './utils/delayer';
 
 Aurelia
   .register(
@@ -26,8 +25,7 @@ Aurelia
           loadPath: '/locales/{{lng}}/{{ns}}.json',
         }
       };
-    }),
-    Registration.transient(IDelayer, Delayer)
+    })
   )
   .app(Shell)
   .start();

@@ -1,13 +1,12 @@
 <div class="row my-1">
 	<div class="input-group mb-3" disabled.bind="isBusy">
-		<input value.bind="qryString & debounce:200" type="text" class="form-control" t="[placeholder]search.placeholder"
-			aria-label="Recipient's username" aria-describedby="button-addon2">
+		<input value.bind="qryString & debounce:200" type="text" class="form-control"
+			t="[placeholder]search.placeholder" aria-label="Recipient's username" aria-describedby="button-addon2">
 		<button click.trigger="publishDataFilteringRequest()" class="btn btn-outline-primary" type="button"
 			id="button-addon2">
 			<span if.bind="isBusy" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-			<i if.bind="!isBusy" class="fa fa-search" aria-hidden="true">
-
-			</i></button>
+			<i if.bind="!isBusy" class="fa fa-search" aria-hidden="true"></i>
+		</button>
 	</div>
 
 </div>

@@ -1,4 +1,1 @@
-export class Countries
-{
-	
-}
+export class Countries {}

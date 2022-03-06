@@ -3,7 +3,6 @@ import { observable } from '@aurelia/runtime-html';
 import { I18N } from '@aurelia/i18n';
 import * as Consts from '../common'
 
-
 export class Filter {
 	eaSubscription: IDisposable;
 	isInitialized: boolean;
@@ -11,14 +10,13 @@ export class Filter {
 
 	@observable qryString: string;
 
-
 	constructor(
 		@IEventAggregator private ea: IEventAggregator,
 		@I18N private I18N: I18N
 	) {
 		this.isInitialized = false;
 		this.isBusy = false;
-		this.eaSubscription = this.ea.subscribe(Consts.CountriesLoadedEvent, () => {
+		this.eaSubscription = this.ea.subscribe(Consts.CountriesLoadedEventChannel, () => {
 			this.isBusy = false;
 		});
 		this.isInitialized = true;
@@ -31,7 +29,6 @@ export class Filter {
 		this.publishFilterCommand()
 	}
 
-
 	publishFilterCommand() {
 		this.isBusy = true;
 		let qry = {
@@ -39,7 +36,7 @@ export class Filter {
 			startsWith: this.qryString,
 			collection: "countries"
 		}
-		this.ea.publish(Consts.LoadCountriesCommand, qry);
+		this.ea.publish(Consts.LoadCountriesCommandChannel, qry);
 	}
 
 	dispose() {

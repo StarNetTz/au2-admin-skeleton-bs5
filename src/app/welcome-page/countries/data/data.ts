@@ -26,7 +26,7 @@ export class Data {
 	) {
 		this.pageSize = 5;
 		this.api = this.Reg.getEndpoint('lookupsApi');
-		this.eaSubscription = this.ea.subscribe(Consts.LoadCountriesCommand, async qry => {
+		this.eaSubscription = this.ea.subscribe(Consts.LoadCountriesCommandChannel, async qry => {
 			console.log('recieved');
 			this.query = qry;
 			this.currentPageIdx = 0;
@@ -50,7 +50,7 @@ export class Data {
 			this.ea.publish("toast:publish", { type: "error", title:"Failed to fetch data", message: e });
 		}
 		finally {
-			this.ea.publish(Consts.CountriesLoadedEvent);
+			this.ea.publish(Consts.CountriesLoadedEventChannel);
 			this.isBusy = false;
 		}
 	}

@@ -1,2 +1,2 @@
-export const LoadCountriesCommand:string = "countries:load";
-export const CountriesLoadedEvent:string = "countries:loaded";
+export const LoadCountriesCommandChannel:string = "countries:load";
+export const CountriesLoadedEventChannel:string = "countries:loaded";

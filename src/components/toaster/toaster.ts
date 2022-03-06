@@ -1,8 +1,7 @@
-import { IDelayer } from "../../utils/delayer";
 import { Toast } from 'bootstrap'
 import { IDisposable, IEventAggregator } from "aurelia";
 
-///ToDo: implement multiple toasts stacking. It is last one wins atm.
+///ToDo: Implement multiple toasts stacking. Atm, it is 0last one wins'.
 export class Toaster {
 	static containerless = true;
 
@@ -13,7 +12,6 @@ export class Toaster {
 	imageSrc:string;
 
 	constructor(
-		@IDelayer private Delayer: IDelayer,
 		@IEventAggregator private EventAggregator : IEventAggregator
 	) {
 		this.EventAggregator.subscribe("toast:publish", (tst:any, chn) => {
