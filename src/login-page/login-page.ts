@@ -1,17 +1,14 @@
-import { IAurelia, Aurelia, IEventAggregator } from "aurelia";
+import { IAurelia, IEventAggregator } from "aurelia";
 import { IAppConfiguration } from '@starnetbih/au2-configuration';
 import { IApiRegistry } from '@starnetbih/au2-api';
 import { IAuthService } from '@starnetbih/au2-auth';
-import { Toast } from 'bootstrap'
 import { I18N } from '@aurelia/i18n';
 
 export class LoginPage {
 
   usernameOrEmail: string;
   password: string;
-  errorMessage: string;
-  toast: Toast;
-  isBusy:boolean;
+  isBusy: boolean;
 
   constructor(@IAurelia private Aurelia: IAurelia,
     @IAppConfiguration private Configuration: IAppConfiguration,
@@ -19,9 +16,8 @@ export class LoginPage {
     @IAuthService private Auth: IAuthService,
     @IEventAggregator private ea: IEventAggregator,
     @I18N private I18N: I18N
-  ) {
-    console.log("evo me konstr login");
-  }
+  ) { }
+
 
   async login() {
     this.isBusy = true;
@@ -32,29 +28,29 @@ export class LoginPage {
 
       let u = await this.Auth.login(req);
     } catch (error) {
-      this.errorMessage = this.I18N.tr('login.invalidUsernameOrPassword');
-      this.toast.show();
+
+      this.ea.publish("toast:publish", { type: "error", title:  this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.invalidUsernameOrPassword') });
     }
-    finally
-    {
+    finally {
       this.isBusy = false;
     }
   }
 
-  attached() {
-    let toasts = Array.from(document.querySelectorAll('.toast'));
-    let tn = toasts[0];
-    this.toast = new Toast(tn);
+  async attached(){
+    //Show login tip
+    setTimeout(()=>{this.forgotPassword()}, 2000);
+  }
+
+  async forgotPassword() {
+    this.ea.publish("toast:publish", { type: "info", "title": this.I18N.tr('login.tipTitle'), message: this.I18N.tr('login.tipMessage') });
   }
 
   async loginGithub() {
-    this.errorMessage = this.I18N.tr('login.githubProviderNotImplemented');
-    this.toast.show();
+    this.ea.publish("toast:publish", { type: "error", title: this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.githubProviderNotImplemented') });
   }
 
   async loginGoogle() {
-    this.errorMessage = this.I18N.tr('login.googleProviderNotImplemented');
-    this.toast.show();
+    this.ea.publish("toast:publish", { type: "error", title: this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.googleProviderNotImplemented') });
   }
 
   setLocale(loc: string) {

@@ -1,0 +1,72 @@
+import { IApiRegistry, IRest } from "@starnetbih/au2-api";
+import { IDisposable, IEventAggregator } from 'aurelia';
+import { I18N } from '@aurelia/i18n';
+import * as Consts from '../common'
+import { observable } from "@aurelia/runtime";
+
+export class Data {
+	api: IRest;
+
+	query: any;
+
+	model: any;
+	isBusy: boolean;
+
+	pageSize: number;
+	@observable currentPageIdx: number;
+	totalItems: number;
+	showPagination: boolean;
+
+	eaSubscription : IDisposable;
+
+	constructor(
+		@IApiRegistry private Reg: IApiRegistry,
+		@IEventAggregator private ea: IEventAggregator,
+		@I18N private I18N: I18N
+	) {
+		this.pageSize = 5;
+		this.api = this.Reg.getEndpoint('lookupsApi');
+		this.eaSubscription = this.ea.subscribe(Consts.LoadCountriesCommand, async qry => {
+			console.log('recieved');
+			this.query = qry;
+			this.currentPageIdx = 0;
+			await this.loadData();
+		  });
+	}
+
+	async loadData() {
+		this.isBusy = true;
+		let req = {
+			currentPage: this.currentPageIdx,
+			pageSize: this.pageSize,
+			qry: this.query
+		};
+
+		try {
+			this.model = await this.api.post({ resource: '/typeaheads', body: req });
+			this.updatePaginator(this.model);
+		}
+		catch (e) {
+			this.ea.publish("toast:publish", { type: "error", title:"Failed to fetch data", message: e });
+		}
+		finally {
+			this.ea.publish(Consts.CountriesLoadedEvent);
+			this.isBusy = false;
+		}
+	}
+
+	updatePaginator(model) {
+		this.totalItems = model.totalItems;
+		this.currentPageIdx = model.currentPage;
+		this.showPagination = model.totalItems > this.pageSize;
+	}
+
+	currentPageIdxChanged(n,o){
+		this.loadData();
+	}
+
+	dispose(){
+		this.eaSubscription.dispose();
+	}
+
+}

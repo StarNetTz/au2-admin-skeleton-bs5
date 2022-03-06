@@ -20,7 +20,9 @@
 		"authenticationError" : "Autentikacijska greška",
 		"invalidUsernameOrPassword": "Neispravno korisničko ime ili lozinka",
 		"githubProviderNotImplemented": "Github provajder nije implementiran!",
-		"googleProviderNotImplemented": "Google provajder nije implementiran!"
+		"googleProviderNotImplemented": "Google provajder nije implementiran!",
+		"tipMessage": "Prijavite se sa admin/admin ili john/doe (korisinici sa različitim ulogama)!",
+		"tipTitle": "Pomoć za prijavu"
 	},
 	"nav": {
 		"welcome": "Dobrodošli",
@@ -35,5 +37,14 @@
 		"email": "Email",
 		"roles": "Uloge",
 		"permissions": "Dozvole"
+	},
+	"paginator": {
+		"page": "Strana:",
+		"results": "Rezultata:",
+		"of": "od"
+	},
+	"search": {
+		"title": "Isporbajmo naš api plugin pretražujući zemalje svijeta!",
+		"placeholder": "Počnite kucati naziv zemlje"
 	}
 }

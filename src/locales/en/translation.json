@@ -1,8 +1,8 @@
 {
-	"welcome":{
-		"title" :  "Welcome to Aurelia 2",
-		"subTitle" :  "Easy to Learn, High Performance",
-		"text":"Aurelia is a collection of Modern JavaScript modules, which when used together, function as a powerful platform for building browser, desktop and mobile applications, all open source and built on open web standards."
+	"welcome": {
+		"title": "Welcome to Aurelia 2",
+		"subTitle": "Easy to Learn, High Performance",
+		"text": "Aurelia is a collection of Modern JavaScript modules, which when used together, function as a powerful platform for building browser, desktop and mobile applications, all open source and built on open web standards."
 	},
 	"login": {
 		"welcome": "Welcome to Aurelia 2",
@@ -10,25 +10,25 @@
 		"email": "Email address or username",
 		"emailPlaceholder": "Your email address or username",
 		"password": "Password",
-		"forgotPassword":"Forgot password?",
-		"keepMeLoggedIn":"Keep me logged in",
-		"signIn":"Sign in",
-		"signingIn":"Signing in",
-		"or":"OR",
-		"dontHaveAccount" :"Don't have an account?",
-		"signUp" : "Sign up",
-		"authenticationError" : "Authentication error",
+		"forgotPassword": "Forgot password?",
+		"keepMeLoggedIn": "Keep me logged in",
+		"signIn": "Sign in",
+		"signingIn": "Signing in",
+		"or": "OR",
+		"dontHaveAccount": "Don't have an account?",
+		"signUp": "Sign up",
+		"authenticationError": "Authentication error",
 		"invalidUsernameOrPassword": "Invalid username or password",
 		"githubProviderNotImplemented": "Github provider not implemented!",
-		"googleProviderNotImplemented": "Google provider not implemented!"
-
+		"googleProviderNotImplemented": "Google provider not implemented!",
+		"tipMessage": "Use: admin/admin or john/doe to log in as users in different roles!",
+		"tipTitle": "Login help"
 	},
 	"nav": {
 		"welcome": "Welcome",
 		"about": "About",
 		"myProfile": "My profile",
 		"signOut": "Sign out"
-
 	},
 	"profile": {
 		"title": "My profile",
@@ -37,5 +37,14 @@
 		"email": "Email",
 		"roles": "Roles",
 		"permissions": "Permissions"
+	},
+	"paginator": {
+		"page": "Page:",
+		"results": "Results:",
+		"of": "of"
+	},
+	"search": {
+		"title": "Lets test our api plugin by searching for some countries!",
+		"placeholder": "Start typing country name"
 	}
 }
