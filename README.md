@@ -1,22 +1,24 @@
 # AU2-ADMIN-SKELETON-BS5
 
-This is a simple Aurelia 2 skeleton app which demonstrates:  
-- Usage of Bootstrap 5 (sass customization)
-- Basic authentication using full page login
+This is a simple Aurelia 2 skeleton app which ties together:  
+- Bootstrap 5 implementation and customization
 - Basic routing
-- I18N
+- Component implementation
+- Full page login authentication 
+- I18N localization
+
+It can serve as basis for implementation of a custom bootstrap based admin theme.
 
 To do:
 - demo of validation plugin
 - role/permission based nav item visibility and accessibility
-- demo of api plugin
 
 It depends on following plugins:  
 - @starnetbih/au2-configuration
 - @starnetbih/au2-auth
 - @starnetbih/au2-api
 
-## test login data
+## Test login data
 You can login with following username/password credantials:
 - admin, admin
 - john, doe
