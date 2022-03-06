@@ -7,7 +7,7 @@ This is a simple Aurelia 2 skeleton app which ties together:
 - Full page login authentication 
 - I18N localization
 
-It can serve as basis for implementation of a custom bootstrap based admin theme.
+It can serve as a basis for a custom bootstrap based admin theme.
 
 To do:
 - demo of validation plugin
