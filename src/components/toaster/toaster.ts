@@ -1,3 +1,4 @@
+import { PublishToastChannel, RemoveToastChannel } from './toasterChannels';
 import { containerless, IDisposable, IEventAggregator } from "aurelia";
 import { IToast } from './IToast';
 
@@ -14,10 +15,10 @@ export class Toaster {
 	}
 
 	attached() {
-		this.showToastSubscription = this.EventAggregator.subscribe("toast:publish", (tst: IToast) => {
+		this.showToastSubscription = this.EventAggregator.subscribe(PublishToastChannel, (tst: IToast) => {
 			this.toasts.push(tst);
 		});
-		this.removeToastSubscription = this.EventAggregator.subscribe("toast:remove", (tst: IToast) => {
+		this.removeToastSubscription = this.EventAggregator.subscribe(RemoveToastChannel, (tst: IToast) => {
 			let idx = this.toasts.indexOf(tst);
 			this.toasts.splice(idx, 1);
 		})
