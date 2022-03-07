@@ -1,36 +1,40 @@
 import { Toast } from 'bootstrap'
 import { IDisposable, IEventAggregator } from "aurelia";
+import { IToast } from './IToast';
 
 ///ToDo: Implement multiple toasts stacking. Atm, it is 0last one wins'.
 export class Toaster {
 	static containerless = true;
-
-	title: string;
-	message: string;
-	toast: Toast;
-	evSubscription : IDisposable;
-	imageSrc:string;
+	evSubscription: IDisposable;
+	toasts: Array<IToast>;
 
 	constructor(
-		@IEventAggregator private EventAggregator : IEventAggregator
+		@IEventAggregator private EventAggregator: IEventAggregator
 	) {
-		this.EventAggregator.subscribe("toast:publish", (tst:any, chn) => {
-			this.message = tst.message;
-			this.title = tst.title;
-			this.imageSrc = `assets/img/${tst.type}.svg`;
-			this.toast.show();
+		this.toasts = [];
+	}
+
+	attached() {
+		this.evSubscription = this.EventAggregator.subscribe("toast:publish", (tst: IToast, chn) => {
+			this.toasts.push(tst);
+			this.showToast(tst);
 		});
-
 	}
 
-	async attached() {
-		let toasts = Array.from(document.querySelectorAll('.toast'));
-		let tn = toasts[0];
-		this.toast = new Toast(tn);
+	private showToast(tst: IToast) {
+		let toastElement = document.getElementById(`toast-${this.toasts.indexOf(tst)}`);
+		let toast = new Toast(toastElement);
+		toast.show();
+		this.removeToast();
 	}
 
-	dispose()
-	{
+	private removeToast() {
+		setTimeout(() => {
+			this.toasts.shift();
+		}, 5000);
+	}
+
+	dispose() {
 		this.evSubscription.dispose();
 	}
 }

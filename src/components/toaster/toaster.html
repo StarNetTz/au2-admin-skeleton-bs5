@@ -4,16 +4,15 @@
 	<!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
 	<!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
 	<div class="toast-container position-absolute top-0 end-0 p-3">
-
-		<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+		<div class="toast" role="alert" id="toast-${toasts.indexOf(toast)}" aria-live="assertive" aria-atomic="true"
+			repeat.for="toast of toasts">
 			<div class="toast-header">
-				<img width="30" height="30" src.bind="imageSrc" class="rounded me-2" alt="...">
-				<strong class="me-auto"><span>${title}</span></strong>
-
+				<img width="30" height="30" src="assets/img/${toast.type}.svg" class="rounded me-2" alt="...">
+				<strong class="me-auto"><span>${toast.title}</span></strong>
 				<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
 			</div>
 			<div class="toast-body">
-				${message}
+				${toast.message}
 			</div>
 		</div>
 	</div>
