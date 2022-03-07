@@ -1,3 +1,5 @@
+import { PublishToastChannel } from './../components/toaster/toasterChannels';
+import { ToastType } from './../components/toaster/toastType';
 import { IAurelia, IEventAggregator } from "aurelia";
 import { IAppConfiguration } from '@starnetbih/au2-configuration';
 import { IApiRegistry } from '@starnetbih/au2-api';
@@ -29,28 +31,28 @@ export class LoginPage {
       let u = await this.Auth.login(req);
     } catch (error) {
 
-      this.ea.publish("toast:publish", { type: "error", title:  this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.invalidUsernameOrPassword') });
+      this.ea.publish(PublishToastChannel, { type: ToastType.ERROR, title: this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.invalidUsernameOrPassword') });
     }
     finally {
       this.isBusy = false;
     }
   }
 
-  async attached(){
+  async attached() {
     //Show login tip
-    setTimeout(()=>{this.forgotPassword()}, 2000);
+    setTimeout(() => { this.forgotPassword() }, 100);
   }
 
   async forgotPassword() {
-    this.ea.publish("toast:publish", { type: "info", "title": this.I18N.tr('login.tipTitle'), message: this.I18N.tr('login.tipMessage') });
+    this.ea.publish(PublishToastChannel, { type: ToastType.INFO, "title": this.I18N.tr('login.tipTitle'), message: this.I18N.tr('login.tipMessage') });
   }
 
   async loginGithub() {
-    this.ea.publish("toast:publish", { type: "error", title: this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.githubProviderNotImplemented') });
+    this.ea.publish(PublishToastChannel, { type: ToastType.ERROR, title: this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.githubProviderNotImplemented') });
   }
 
   async loginGoogle() {
-    this.ea.publish("toast:publish", { type: "error", title: this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.googleProviderNotImplemented') });
+    this.ea.publish(PublishToastChannel, { type: ToastType.ERROR, title: this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.googleProviderNotImplemented') });
   }
 
   setLocale(loc: string) {

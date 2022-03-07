@@ -1,3 +1,4 @@
+import { ToastType } from './../../../../components/toaster/toastType';
 import { IApiRegistry, IRest } from "@starnetbih/au2-api";
 import { IDisposable, IEventAggregator } from 'aurelia';
 import { I18N } from '@aurelia/i18n';
@@ -47,7 +48,7 @@ export class Data {
 			this.updatePaginator(this.model);
 		}
 		catch (e) {
-			this.ea.publish("toast:publish", { type: "error", title:"Failed to fetch data", message: e });
+			this.ea.publish("toast:publish", { type: ToastType.ERROR, title:"Failed to fetch data", message: e });
 		}
 		finally {
 			this.ea.publish(Consts.CountriesLoadedEventChannel);
