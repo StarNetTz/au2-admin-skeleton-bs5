@@ -130,6 +130,29 @@
     "@aurelia/runtime" "2.0.0-alpha.24"
     ts-jest "^27.0.4"
 
+"@aurelia/validation-html@^2.0.0-alpha.24":
+  version "2.0.0-alpha.24"
+  resolved "https://registry.yarnpkg.com/@aurelia/validation-html/-/validation-html-2.0.0-alpha.24.tgz#bee84eed52917886ed8a057de4f0771fc766c7c6"
+  integrity sha512-D9ChEKOrvmF2zOy6aBVX1p4nPpy48c5qdl9DjHfHFwIDyjL2BBRDi6C1pRQih7XZ8ZmXBgzzlNvxw/U4Y/RV8A==
+  dependencies:
+    "@aurelia/kernel" "2.0.0-alpha.24"
+    "@aurelia/metadata" "2.0.0-alpha.24"
+    "@aurelia/platform" "2.0.0-alpha.24"
+    "@aurelia/platform-browser" "2.0.0-alpha.24"
+    "@aurelia/runtime" "2.0.0-alpha.24"
+    "@aurelia/runtime-html" "2.0.0-alpha.24"
+    "@aurelia/validation" "2.0.0-alpha.24"
+
+"@aurelia/validation@2.0.0-alpha.24", "@aurelia/validation@^2.0.0-alpha.24":
+  version "2.0.0-alpha.24"
+  resolved "https://registry.yarnpkg.com/@aurelia/validation/-/validation-2.0.0-alpha.24.tgz#eaffebd0a9793d72a63ff4c1e73b8195f2a5b9eb"
+  integrity sha512-cZvvaZ4bPpx8qi+ma0leDFU4sCScCkV0BR5xDJDIbKAwVQJoLcmSsJJ+WMIcSTmQ9fQ5bbGBSTcW/prme/Bgrg==
+  dependencies:
+    "@aurelia/kernel" "2.0.0-alpha.24"
+    "@aurelia/metadata" "2.0.0-alpha.24"
+    "@aurelia/platform" "2.0.0-alpha.24"
+    "@aurelia/runtime" "2.0.0-alpha.24"
+
 "@aurelia/webpack-loader@latest":
   version "2.0.0-alpha.24"
   resolved "https://registry.yarnpkg.com/@aurelia/webpack-loader/-/webpack-loader-2.0.0-alpha.24.tgz#6e34dd0e319802383972fea3b9baeda648b10e3b"

@@ -9,6 +9,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@aurelia/i18n": "^2.0.0-alpha.24",
+    "@aurelia/validation": "^2.0.0-alpha.24",
+    "@aurelia/validation-html": "^2.0.0-alpha.24",
     "@popperjs/core": "^2.11.2",
     "@starnetbih/au2-api": "^0.1.6",
     "@starnetbih/au2-auth": "^0.1.6",

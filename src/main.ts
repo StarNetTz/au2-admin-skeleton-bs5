@@ -1,6 +1,7 @@
 
 import 'bootstrap';
 import Aurelia, { Registration, RouterConfiguration } from 'aurelia';
+import { IValidationController, ValidationController, ValidationHtmlConfiguration } from '@aurelia/validation-html';
 import { Shell } from './shell/shell';
 import { AppConfigurationPlugin } from '@starnetbih/au2-configuration';
 import { ApiPlugin } from '@starnetbih/au2-api';
@@ -25,7 +26,8 @@ Aurelia
           loadPath: '/locales/{{lng}}/{{ns}}.json',
         }
       };
-    })
+    }),
+    ValidationHtmlConfiguration   
   )
   .app(Shell)
   .start();
