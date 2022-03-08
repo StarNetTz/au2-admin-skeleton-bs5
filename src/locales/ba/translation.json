@@ -1,4 +1,8 @@
 {
+	"validation": {
+		"required":"Obavezan podatak",
+		"minLength":"Min. dužina"
+	},
 	"welcome":{
 		"title" :  "Aurelia 2 - Dobrodošli",
 		"subTitle" :  "Laka za Naučiti, Izvrsne Performanse",

@@ -15,9 +15,11 @@
 						<form>
 							<div class="mb-5">
 								<label class="form-label" for="email" t="login.email">Email address</label>
+								<validation-container>
 								<input tabindex="0" value.bind="credentials.username & validate" type="email" class="form-control"
 									id="email" t="[placeholder]login.emailPlaceholder"
 									placeholder="xYour email address">
+								</validation-container>
 							</div>
 							<div class="mb-5">
 								<div class="d-flex align-items-center justify-content-between">
@@ -30,8 +32,10 @@
 											password?</a>
 									</div>
 								</div>
+								<validation-container>
 								<input type="credentials.password" class="form-control" t="[placeholder]login.password"
 									placeholder="xPassword" autocomplete="current-password" value.bind="credentials.password & validate">
+								</validation-container>
 							</div>
 							<div class="mb-5">
 								<div class="form-check">

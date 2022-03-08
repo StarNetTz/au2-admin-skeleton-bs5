@@ -1,26 +1,18 @@
 import { PublishToastChannel } from './../components/toaster/toasterChannels';
 import { ToastType } from './../components/toaster/toastType';
-import { IAurelia, IEventAggregator } from "aurelia";
-import { IAppConfiguration } from '@starnetbih/au2-configuration';
-import { IApiRegistry } from '@starnetbih/au2-api';
+import { IEventAggregator } from "aurelia";
 import { IAuthService } from '@starnetbih/au2-auth';
 import { I18N } from '@aurelia/i18n';
-
 import { newInstanceForScope } from '@aurelia/kernel';
 import { IValidationRules } from '@aurelia/validation';
 import { IValidationController } from '@aurelia/validation-html';
 
 export class LoginPage {
 
-  usernameOrEmail: string;
-  password: string;
   isBusy: boolean;
+  credentials: Credentials;
 
-  private credentials: Credentials;
-
-  constructor(@IAurelia private Aurelia: IAurelia,
-    @IAppConfiguration private Configuration: IAppConfiguration,
-    @IApiRegistry private Reg: IApiRegistry,
+  constructor(  
     @IAuthService private Auth: IAuthService,
     @IEventAggregator private ea: IEventAggregator,
     @I18N private I18N: I18N,
@@ -29,27 +21,24 @@ export class LoginPage {
   ) {
 
     this.credentials = new Credentials();
+    
     ValidationRules
       .on(this.credentials)
-      .ensure('username')
+      .ensure("username")
       .required()
+      .minLength(2)
       .ensure('password')
       .required()
-      .min(2);
+      .minLength(2)
   }
 
 
   async login() {
     const result = await this.ValidationController.validate();
-    console.log(this.credentials);
+    console.log(this.ValidationController);
     console.log(result);
-    if (result.valid) {
+    if (result.valid)
       await this.tryLogin();
-    }
-    else {
-      console.log('rinaka');
-      throw ('validation exception');
-    }
   }
 
   private async tryLogin() {
@@ -93,13 +82,6 @@ export class LoginPage {
 
 
 class Credentials {
-
-  public username: string;
-  public password: string;
-
-  constructor() {
-    this.username = '';
-    this.password = '';
-  }
-
+  public username: string = '';
+  public password: string = '';
 }

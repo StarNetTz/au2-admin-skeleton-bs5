@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const Dotenv = require('dotenv-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -28,7 +28,7 @@ const postcssLoader = {
   }
 };
 
-module.exports = function(env, { analyze }) {
+module.exports = function (env, { analyze }) {
   const production = env.production || process.env.NODE_ENV === 'production';
   return {
     target: 'web',
@@ -53,13 +53,18 @@ module.exports = function(env, { analyze }) {
     module: {
       rules: [
         { test: /\.(png|svg|jpg|jpeg|gif)$/i, type: 'asset' },
-        { test: /\.(woff|woff2|ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/i,  type: 'asset' },
-        { test: /\.css$/i, use: [ 'style-loader', cssLoader, postcssLoader ] },
-        { test: /\.scss$/i, use: [ 'style-loader', cssLoader, postcssLoader, sassLoader ] },
+        { test: /\.(woff|woff2|ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/i, type: 'asset' },
+        { test: /\.css$/i, use: ['style-loader', cssLoader, postcssLoader] },
+        { test: /\.scss$/i, use: ['style-loader', cssLoader, postcssLoader, sassLoader] },
         { test: /\.ts$/i, use: ['ts-loader', '@aurelia/webpack-loader'], exclude: /node_modules/ },
         {
           test: /[/\\]src[/\\].+\.html$/i,
-          use: '@aurelia/webpack-loader',
+          use: {
+            loader: '@aurelia/webpack-loader',
+           /* options: {
+              defaultShadowOptions: { mode: 'open' }
+            }*/
+          },
           exclude: /node_modules/
         }
       ]
@@ -67,15 +72,16 @@ module.exports = function(env, { analyze }) {
     plugins: [
       new HtmlWebpackPlugin({ template: 'index.html' }),
       new Dotenv({
-        path: `./.env${production ? '' :  '.' + (process.env.NODE_ENV || 'development')}`,
+        path: `./.env${production ? '' : '.' + (process.env.NODE_ENV || 'development')}`,
       }),
       analyze && new BundleAnalyzerPlugin(),
       new CopyWebpackPlugin({
-        patterns:[
-        { from: srcDir +'/assets', to: outDir + '/assets' },
-        { from: srcDir +'/config', to: outDir + '/config' },
-        { from: srcDir +'/locales', to: outDir + '/locales' }
-      ]})
+        patterns: [
+          { from: srcDir + '/assets', to: outDir + '/assets' },
+          { from: srcDir + '/config', to: outDir + '/config' },
+          { from: srcDir + '/locales', to: outDir + '/locales' }
+        ]
+      })
     ].filter(p => p)
   }
 }
