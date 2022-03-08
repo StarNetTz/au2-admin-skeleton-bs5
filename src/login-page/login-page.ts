@@ -1,18 +1,17 @@
-import { PublishToastChannel } from './../components/toaster/toasterChannels';
-import { ToastType } from './../components/toaster/toastType';
 import { IEventAggregator } from "aurelia";
 import { IAuthService } from '@starnetbih/au2-auth';
 import { I18N } from '@aurelia/i18n';
 import { newInstanceForScope } from '@aurelia/kernel';
 import { IValidationRules } from '@aurelia/validation';
 import { IValidationController } from '@aurelia/validation-html';
+import { TOASTER_PUBLISH_EA_CHANNEL, ToastType } from "@starnetbih/au2-toaster";
 
 export class LoginPage {
 
   isBusy: boolean;
   credentials: Credentials;
 
-  constructor(  
+  constructor(
     @IAuthService private Auth: IAuthService,
     @IEventAggregator private ea: IEventAggregator,
     @I18N private I18N: I18N,
@@ -21,7 +20,7 @@ export class LoginPage {
   ) {
 
     this.credentials = new Credentials();
-    
+
     ValidationRules
       .on(this.credentials)
       .ensure("username")
@@ -51,7 +50,7 @@ export class LoginPage {
       let u = await this.Auth.login(req);
     } catch (error) {
 
-      this.ea.publish(PublishToastChannel, { type: ToastType.ERROR, title: this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.invalidUsernameOrPassword') });
+      this.ea.publish(TOASTER_PUBLISH_EA_CHANNEL, { type: ToastType.ERROR, title: this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.invalidUsernameOrPassword') });
     }
     finally {
       this.isBusy = false;
@@ -64,15 +63,15 @@ export class LoginPage {
   }
 
   async forgotPassword() {
-    this.ea.publish(PublishToastChannel, { type: ToastType.INFO, "title": this.I18N.tr('login.tipTitle'), message: this.I18N.tr('login.tipMessage') });
+    this.ea.publish(TOASTER_PUBLISH_EA_CHANNEL, { type: ToastType.INFO, "title": this.I18N.tr('login.tipTitle'), message: this.I18N.tr('login.tipMessage') });
   }
 
   async loginGithub() {
-    this.ea.publish(PublishToastChannel, { type: ToastType.ERROR, title: this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.githubProviderNotImplemented') });
+    this.ea.publish(TOASTER_PUBLISH_EA_CHANNEL, { type: ToastType.ERROR, title: this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.githubProviderNotImplemented') });
   }
 
   async loginGoogle() {
-    this.ea.publish(PublishToastChannel, { type: ToastType.ERROR, title: this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.googleProviderNotImplemented') });
+    this.ea.publish(TOASTER_PUBLISH_EA_CHANNEL, { type: ToastType.ERROR, title: this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.googleProviderNotImplemented') });
   }
 
   setLocale(loc: string) {
