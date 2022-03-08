@@ -778,6 +778,15 @@
   dependencies:
     aurelia latest
 
+"@starnetbih/au2-toaster@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@starnetbih/au2-toaster/-/au2-toaster-0.1.1.tgz#042e8ea629fc4c7a395101c8b6a289d976e7f5fe"
+  integrity sha512-1dTWkxTDmRUgtn3Rxu9h3h63z8sD71gS8lVUCrXVHo6w/+1NnzSPVlHhKh+CuLgX2Bz0bC4G91UJ0ftCdzngeQ==
+  dependencies:
+    "@popperjs/core" "^2.11.2"
+    aurelia latest
+    bootstrap "^5.1.3"
+
 "@tootallnate/once@1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"

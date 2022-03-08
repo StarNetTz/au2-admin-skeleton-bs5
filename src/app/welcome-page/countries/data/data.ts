@@ -1,4 +1,4 @@
-import { ToastType } from './../../../../components/toaster/toastType';
+import { TOASTER_PUBLISH_EA_CHANNEL, ToastType } from '@starnetbih/au2-toaster';
 import { IApiRegistry, IRest } from "@starnetbih/au2-api";
 import { IDisposable, IEventAggregator } from 'aurelia';
 import { I18N } from '@aurelia/i18n';
@@ -18,7 +18,7 @@ export class Data {
 	totalItems: number;
 	showPagination: boolean;
 
-	eaSubscription : IDisposable;
+	eaSubscription: IDisposable;
 
 	constructor(
 		@IApiRegistry private Reg: IApiRegistry,
@@ -32,7 +32,7 @@ export class Data {
 			this.query = qry;
 			this.currentPageIdx = 0;
 			await this.loadData();
-		  });
+		});
 	}
 
 	async loadData() {
@@ -48,7 +48,7 @@ export class Data {
 			this.updatePaginator(this.model);
 		}
 		catch (e) {
-			this.ea.publish("toast:publish", { type: ToastType.ERROR, title:"Failed to fetch data", message: e });
+			this.ea.publish(TOASTER_PUBLISH_EA_CHANNEL, { type: ToastType.ERROR, title: "Failed to fetch data", message: e });
 		}
 		finally {
 			this.ea.publish(Consts.CountriesLoadedEventChannel);
@@ -62,11 +62,11 @@ export class Data {
 		this.showPagination = model.totalItems > this.pageSize;
 	}
 
-	currentPageIdxChanged(n,o){
+	currentPageIdxChanged(n, o) {
 		this.loadData();
 	}
 
-	dispose(){
+	dispose() {
 		this.eaSubscription.dispose();
 	}
 

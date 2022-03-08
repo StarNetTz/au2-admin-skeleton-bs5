@@ -1,4 +1,3 @@
-
 import 'bootstrap';
 import { Aurelia, RouterConfiguration } from 'aurelia';
 import { ValidationHtmlConfiguration } from '@aurelia/validation-html';
@@ -9,6 +8,7 @@ import { AureliaAuthPlugin } from '@starnetbih/au2-auth';
 import { I18nConfiguration } from '@aurelia/i18n';
 import Fetch from 'i18next-fetch-backend';
 import { ValidationI18nConfiguration } from '@aurelia/validation-i18n';
+import { Toaster } from '@starnetbih/au2-toaster';
 
 Aurelia
   .register(
@@ -40,7 +40,9 @@ Aurelia
         </span>
       </slot>
       `;
-    })
+    }
+    ),
+    Toaster
   )
   .app(Shell)
   .start();
