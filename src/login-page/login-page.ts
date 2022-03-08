@@ -1,31 +1,51 @@
 import { PublishToastChannel } from './../components/toaster/toasterChannels';
 import { ToastType } from './../components/toaster/toastType';
-import { IAurelia, IEventAggregator } from "aurelia";
-import { IAppConfiguration } from '@starnetbih/au2-configuration';
-import { IApiRegistry } from '@starnetbih/au2-api';
+import { IEventAggregator } from "aurelia";
 import { IAuthService } from '@starnetbih/au2-auth';
 import { I18N } from '@aurelia/i18n';
+import { newInstanceForScope } from '@aurelia/kernel';
+import { IValidationRules } from '@aurelia/validation';
+import { IValidationController } from '@aurelia/validation-html';
 
 export class LoginPage {
 
-  usernameOrEmail: string;
-  password: string;
   isBusy: boolean;
+  credentials: Credentials;
 
-  constructor(@IAurelia private Aurelia: IAurelia,
-    @IAppConfiguration private Configuration: IAppConfiguration,
-    @IApiRegistry private Reg: IApiRegistry,
+  constructor(  
     @IAuthService private Auth: IAuthService,
     @IEventAggregator private ea: IEventAggregator,
-    @I18N private I18N: I18N
-  ) { }
+    @I18N private I18N: I18N,
+    @newInstanceForScope(IValidationController) private ValidationController: IValidationController,
+    @IValidationRules ValidationRules: IValidationRules
+  ) {
+
+    this.credentials = new Credentials();
+    
+    ValidationRules
+      .on(this.credentials)
+      .ensure("username")
+      .required()
+      .minLength(2)
+      .ensure('password')
+      .required()
+      .minLength(2)
+  }
 
 
   async login() {
-    this.isBusy = true;
+    const result = await this.ValidationController.validate();
+    console.log(this.ValidationController);
+    console.log(result);
+    if (result.valid)
+      await this.tryLogin();
+  }
+
+  private async tryLogin() {
     try {
+      this.isBusy = true;
       let req = {
-        credentials: { username: this.usernameOrEmail, password: this.password }
+        credentials: this.credentials
       };
 
       let u = await this.Auth.login(req);
@@ -58,4 +78,10 @@ export class LoginPage {
   setLocale(loc: string) {
     this.I18N.setLocale(loc);
   }
+}
+
+
+class Credentials {
+  public username: string = '';
+  public password: string = '';
 }

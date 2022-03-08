@@ -3,15 +3,15 @@
 This is a simple Aurelia 2 skeleton app which ties together:  
 - Bootstrap 5 implementation and customization
 - Basic routing
-- Component implementation
 - Full page login authentication 
 - I18N localization
+- Validation
+- Custom components
 
 It can serve as a basis for a custom bootstrap based admin theme.
 
 To do:
-- demo of validation plugin
-- role/permission based nav item visibility and accessibility
+- role based nav item visibility and accessibility
 
 It depends on following plugins:  
 - @starnetbih/au2-configuration
