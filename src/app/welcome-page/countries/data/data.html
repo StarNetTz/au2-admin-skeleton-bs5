@@ -1,9 +1,13 @@
-<import from="../../../../components/paginator/paginator"></import>
 <div>
-	<paginator if.bind="showPagination" is-disabled.bind="isBusy" page-size.bind="pageSize"
-	current-page-idx.two-way="currentPageIdx" total-items.bind="totalItems" max-page-blocks="5"></paginator>
+	<data-paginator if.bind="showPagination" is-disabled.bind="isBusy" page-size.bind="pageSize"
+		current-page-idx.two-way="currentPageIdx" total-items.bind="totalItems"></data-paginator>
 	<ul class="list-group mt-2">
 		<li if.bind="!totalItems" class="list-group-item">No results</li>
 		<li repeat.for="r of model.data" class="list-group-item">${r.value}</li>
-	  </ul>
+	</ul>
+	<div class="mt-3 d-flex justify-content-center">
+		<page-navigator if.bind="showPagination" is-disabled.bind="isBusy" page-size.bind="pageSize"
+			current-page-idx.two-way="currentPageIdx" total-items.bind="totalItems" max-page-blocks="5">
+		</page-navigator>
+	</div>
 </div>
