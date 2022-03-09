@@ -9,6 +9,7 @@ import { I18nConfiguration } from '@aurelia/i18n';
 import Fetch from 'i18next-fetch-backend';
 import { ValidationI18nConfiguration } from '@aurelia/validation-i18n';
 import { Toaster } from '@starnetbih/au2-toaster';
+import * as PaginatorComponents from '@starnetbih/au2-paginator';
 
 Aurelia
   .register(
@@ -40,9 +41,9 @@ Aurelia
         </span>
       </slot>
       `;
-    }
-    ),
-    Toaster
+    }),
+    Toaster,
+    PaginatorComponents
   )
   .app(Shell)
   .start();

@@ -1,6 +1,6 @@
 import { IAuthService } from '@starnetbih/au2-auth';
 import { IEventAggregator } from "@aurelia/kernel";
-import { IRouter, route } from '@aurelia/router';
+import { IRouter, route } from '@aurelia/router-lite';
 import { LoginPage } from '../login-page/login-page';
 import { App } from '../app/app';
 import { IDisposable } from 'aurelia';

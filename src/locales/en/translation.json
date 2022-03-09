@@ -50,5 +50,14 @@
 	"search": {
 		"title": "Lets test our api plugin by searching for some countries!",
 		"placeholder": "Start typing country name"
+	},
+	"pagination": {
+		"page": "Page:",
+		"results": "Results:",
+		"of": "of",
+		"first":"First",
+		"previous":"Previous",
+		"next": "Next",
+		"last":"Last"
 	}
 }

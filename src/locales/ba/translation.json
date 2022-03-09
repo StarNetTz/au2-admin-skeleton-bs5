@@ -50,5 +50,14 @@
 	"search": {
 		"title": "Isprobajmo api plugin pretražujući zemlje svijeta!",
 		"placeholder": "Počnite kucati naziv zemlje"
+	},
+	"pagination": {
+		"page": "Strana:",
+		"results": "Rezultata:",
+		"of": "od",
+		"first":"Prva",
+		"previous":"Prethodna",
+		"next": "Slijedeća",
+		"last":"Poslijednja"
 	}
 }
