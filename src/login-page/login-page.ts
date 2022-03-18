@@ -31,7 +31,6 @@ export class LoginPage {
       .minLength(2)
   }
 
-
   async login() {
     const result = await this.ValidationController.validate();
     console.log(this.ValidationController);
@@ -43,11 +42,11 @@ export class LoginPage {
   private async tryLogin() {
     try {
       this.isBusy = true;
-      let req = {
+      const req = {
         credentials: this.credentials
       };
 
-      let u = await this.Auth.login(req);
+      await this.Auth.login(req);
     } catch (error) {
 
       this.ea.publish(TOASTER_PUBLISH_EA_CHANNEL, { type: ToastType.ERROR, title: this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.invalidUsernameOrPassword') });
@@ -81,6 +80,6 @@ export class LoginPage {
 
 
 class Credentials {
-  public username: string = '';
-  public password: string = '';
+  public username = '';
+  public password = '';
 }
