@@ -12,13 +12,13 @@ export class Navbar {
 		@I18N private I18N: I18N
 	) {
 		this.eventSubscription = EventAggregator.subscribe("shell:loaded", () => {
-			let jwt = this.Auth.getTokenPayload();
+			const jwt = this.Auth.getTokenPayload();
 			this.userName = jwt.name;
 		});
 	}
 
 	async logout() {
-		await this.Auth.logout();
+		await this.Auth.logout(null);
 	}
 
 	setLocale(loc: string) {
