@@ -1,5 +1,5 @@
 import { IEventAggregator } from "aurelia";
-import { IAuthService } from '@starnetbih/au2-auth';
+import { IAuthService } from '@starnetbih/au2-servicestack-auth';
 import { I18N } from '@aurelia/i18n';
 import { newInstanceForScope } from '@aurelia/kernel';
 import { IValidationRules } from '@aurelia/validation';
@@ -42,11 +42,8 @@ export class LoginPage {
   private async tryLogin() {
     try {
       this.isBusy = true;
-      const req = {
-        credentials: this.credentials
-      };
 
-      await this.Auth.login(req);
+      await this.Auth.signIn(this.credentials);
     } catch (error) {
 
       this.ea.publish(TOASTER_PUBLISH_EA_CHANNEL, { type: ToastType.ERROR, title: this.I18N.tr('login.authenticationError'), message: this.I18N.tr('login.invalidUsernameOrPassword') });

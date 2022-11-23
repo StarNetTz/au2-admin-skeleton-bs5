@@ -4,7 +4,6 @@ import { ValidationHtmlConfiguration } from '@aurelia/validation-html';
 import { Shell } from './shell/shell';
 import { AureliaConfigurationConfiguration } from '@starnetbih/au2-configuration';
 import { AureliaApiConfiguration } from '@starnetbih/au2-api';
-import { AureliaAuthConfiguration } from '@starnetbih/au2-auth';
 import { I18nConfiguration } from '@aurelia/i18n';
 import Fetch from 'i18next-fetch-backend';
 import { ValidationI18nConfiguration } from '@aurelia/validation-i18n';
@@ -15,7 +14,6 @@ Aurelia
   .register(
     RouterConfiguration,
     AureliaConfigurationConfiguration,
-    AureliaAuthConfiguration.configure({responseTokenProp: 'bearerToken', logoutRedirect : null, loginRedirect:null}),
     AureliaApiConfiguration,
     I18nConfiguration.customize((options) => {
       options.initOptions = {

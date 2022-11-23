@@ -1,5 +1,5 @@
 import { TOASTER_PUBLISH_EA_CHANNEL, ToastType } from '@starnetbih/au2-toaster';
-import { IApiRegistry, IRest } from "@starnetbih/au2-api";
+import { IApiEndpoints, IRest } from "@starnetbih/au2-api";
 import { IDisposable, IEventAggregator } from 'aurelia';
 import { I18N } from '@aurelia/i18n';
 import * as Consts from '../common'
@@ -21,12 +21,12 @@ export class Data {
 	eaSubscription: IDisposable;
 
 	constructor(
-		@IApiRegistry private Reg: IApiRegistry,
+		@IApiEndpoints private Reg: IApiEndpoints,
 		@IEventAggregator private ea: IEventAggregator,
 		@I18N private I18N: I18N
 	) {
 		this.pageSize = 5;
-		this.api = this.Reg.getEndpoint('lookupsApi');
+		this.api = this.Reg.get('lookupsApi');
 		this.eaSubscription = this.ea.subscribe(Consts.LoadCountriesCommandChannel, async qry => {
 			console.log('recieved');
 			this.query = qry;
@@ -37,7 +37,7 @@ export class Data {
 
 	async loadData() {
 		this.isBusy = true;
-		let req = {
+		const req = {
 			currentPage: this.currentPageIdx,
 			pageSize: this.pageSize,
 			qry: this.query

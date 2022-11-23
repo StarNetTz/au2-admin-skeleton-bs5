@@ -1,10 +1,10 @@
-import { IAuthService } from '@starnetbih/au2-auth';
 import { IEventAggregator } from "@aurelia/kernel";
 import { IRouter, route } from '@aurelia/router-lite';
 import { LoginPage } from '../login-page/login-page';
 import { App } from '../app/app';
-import { IDisposable } from 'aurelia';
 import { MissingPage } from '../app/missing-page/missing-page';
+import { IAuthService, SS_AUTH_CHANNEL_SIGNED_IN, SS_AUTH_CHANNEL_SIGNED_OUT } from '@starnetbih/au2-servicestack-auth';
+import { IDisposable } from "aurelia";
 
 @route({
 	routes: [
@@ -38,11 +38,11 @@ export class Shell {
 		@IRouter private Router: IRouter
 	) {
 
-		this.loginSubscription = this.EA.subscribe("auth:login", (msg, chnl) => {
+		this.loginSubscription = this.EA.subscribe(SS_AUTH_CHANNEL_SIGNED_IN, (msg, chnl) => {
 			this.Router.load('app');
 		});
 
-		this.logoutSubscription = this.EA.subscribe("auth:logout", () => {
+		this.logoutSubscription = this.EA.subscribe(SS_AUTH_CHANNEL_SIGNED_OUT, () => {
 			this.Router.load('login');
 		});
 	}

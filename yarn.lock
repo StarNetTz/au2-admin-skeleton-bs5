@@ -759,30 +759,20 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@starnetbih/au2-api@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@starnetbih/au2-api/-/au2-api-0.2.3.tgz#67a873fd3afe26418190b9e96f56c1a7baf1a0f3"
-  integrity sha512-h5N117CLtvWEZC013sMa3Rz8CeG1O8nSZ9F3QJMYDBrax/OAGK7N6al2zgNEQoQ+rzSQXre36rmq2sSug57k1A==
+"@starnetbih/au2-api@0.2.4", "@starnetbih/au2-api@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@starnetbih/au2-api/-/au2-api-0.2.4.tgz#db65a3c257fff157788b09c19805566853be4b3d"
+  integrity sha512-hnwZV+YGv08aViiFTxC9r7n27GVVzAUD0BkfosI1LQWib6RUeuq1WOz6HP7J3Z3WJnV3d8XKKmkzkiG5IbCSbQ==
   dependencies:
     "@aurelia/kernel" latest
     "@aurelia/runtime" latest
     "@aurelia/runtime-html" latest
-    "@starnetbih/au2-auth" "0.2.3"
-    "@starnetbih/au2-configuration" "0.2.3"
+    "@starnetbih/au2-configuration" "0.2.4"
 
-"@starnetbih/au2-auth@0.2.3", "@starnetbih/au2-auth@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@starnetbih/au2-auth/-/au2-auth-0.2.3.tgz#a8c3ace347be6ab0a92d7e2d7b7fe297627eab63"
-  integrity sha512-F/7Ogjb9lngR9ZhlByYvu12qmUOjyZU+v1d9+wZwXA1IeXeL+zp17rF17rrysjER0VMwZ9k5Ll0NeGU7hwXWfw==
-  dependencies:
-    "@aurelia/kernel" latest
-    "@aurelia/runtime" latest
-    "@aurelia/runtime-html" latest
-
-"@starnetbih/au2-configuration@0.2.3", "@starnetbih/au2-configuration@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@starnetbih/au2-configuration/-/au2-configuration-0.2.3.tgz#0e66caae25432f61b7c8752795529a221f69efcb"
-  integrity sha512-K2M7A+BkavyUUyP/IIfZ1v11YU+LWfzkfQkQCkpqCBDdlpGbvvmuJpdT3L3031h+EL8wjeTsSVCx+J6PIsHbkA==
+"@starnetbih/au2-configuration@0.2.4", "@starnetbih/au2-configuration@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@starnetbih/au2-configuration/-/au2-configuration-0.2.4.tgz#8a9c44e00062b7127c38c208254b5e36a8d2ed5c"
+  integrity sha512-p0lB864dbAp+i+VkRLFp7lKNHfNnA0YcFxBXAGX+SqdreWnkIsXj0wN4QgKmvhx12heN4Ew7YWgO0ZBnbl4+Pg==
   dependencies:
     "@aurelia/kernel" latest
     "@aurelia/runtime" latest
@@ -797,6 +787,16 @@
     "@popperjs/core" "^2.11.2"
     aurelia "^2.0.0-alpha.25"
     bootstrap "^5.1.3"
+
+"@starnetbih/au2-servicestack-auth@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@starnetbih/au2-servicestack-auth/-/au2-servicestack-auth-0.2.4.tgz#15c25c13a740b742c1a4282b0e3b78a33b27d6c1"
+  integrity sha512-dXAog0fAk0h0b3a8kqZg3SKa/g87mSwom91MhuZuP9BanfUO/6SMBCAtmIUj7l2GqVfov0cxlbOk5OAaOq6m8w==
+  dependencies:
+    "@aurelia/kernel" latest
+    "@aurelia/runtime" latest
+    "@aurelia/runtime-html" latest
+    "@starnetbih/au2-api" "0.2.4"
 
 "@starnetbih/au2-toaster@^0.1.4":
   version "0.1.4"
@@ -1783,9 +1783,9 @@ camelcase@^6.2.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001317:
-  version "1.0.30001323"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001323.tgz#a451ff80dec7033016843f532efda18f02eec011"
-  integrity sha512-e4BF2RlCVELKx8+RmklSEIVub1TWrmdhvA5kEUueummz1XyySW0DVk+3x9HyhU9MuWTa2BhqLgEuEmUwASAdCA==
+  version "1.0.30001324"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001324.tgz#e17c3a8b34822b02d5d15639d570057550074884"
+  integrity sha512-/eYp1J6zYh1alySQB4uzYFkLmxxI8tk0kxldbNHXp8+v+rdMKdUBNjRLz7T7fz6Iox+1lIdYpc7rq6ZcXfTukg==
 
 chalk@^1.0.0, chalk@^1.1.1, chalk@^1.1.3:
   version "1.1.3"
@@ -5222,9 +5222,9 @@ sass-loader@^12.4.0:
     neo-async "^2.6.2"
 
 sass@^1.49.0:
-  version "1.49.10"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.49.10.tgz#7b83cee0f03bbba443111b3f94944fde2b0c7a6b"
-  integrity sha512-w37zfWJwKu4I78U4z63u1mmgoncq+v3iOB4yzQMPyAPVHHawaQSnu9C9ysGQnZEhW609jkcLioJcMCqm75JMdg==
+  version "1.49.11"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.49.11.tgz#1ffeb77faeed8b806a2a1e021d7c9fd3fc322cb7"
+  integrity sha512-wvS/geXgHUGs6A/4ud5BFIWKO1nKd7wYIGimDk4q4GFkJicILActpv9ueMT4eRGSsp1BdKHuw1WwAHXbhsJELQ==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
